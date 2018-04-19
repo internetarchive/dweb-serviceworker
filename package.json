@@ -1,0 +1,33 @@
+{
+  "author": {
+    "name": "Mitra Ardron",
+    "email": "mitra@archive.org",
+    "url": "http://www.mitra.biz"
+  },
+  "browser": {
+    "node-fetch": false
+  },
+  "bugs": {
+    "url": "https://github.com/internetarchive/dweb-serviceworker/issues"
+  },
+  "dependencies": {
+    "dweb-objects": "git+https://git@github.com/internetarchive/dweb-objects.git",
+    "dweb-transports": "git+https://git@github.com/internetarchive/dweb-transports.git"
+  },
+  "description": "Internet Archive Decentralized Web Service Worker Library",
+  "devDependencies": {},
+  "homepage": "https://github.com/internetarchive/dweb-serviceworker#readme",
+  "keywords": [],
+  "license": "AGPL-3.0",
+  "main": "index.js",
+  "name": "dweb-serviceworker",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/internetarchive/dweb-serviceworker.git"
+  },
+  "scripts": {
+    "test": "cd src; node ./test.js",
+    "help": "echo 'test (test it)';'"
+  },
+  "version": "0.0.1"
+}
