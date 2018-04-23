@@ -24,6 +24,9 @@ class TransportsProxy {
         }
         this.refreshstatuses(await this.p_statuses());
     }
+    static resolveNamesWith() {
+        console.log("Trying to register Domain with a TransportsProxy, it should have registered in ServiceWorker already so ignoring");
+    }
 
     static _p_proxy(command, args) {
         // This wraps the message posting/response in a promise, which will resolve if the response doesn't

@@ -121,7 +121,7 @@ self.addEventListener('message', (event) => {
     /* This ia proxy for Transports
     event.command = p_rawfetch|....
      */
-    console.log("SW handling event", event);
+    console.log("SW handling event", event.data.command, event.data.args);
     let res;
     if (typeof DwebTransports[event.data.command] !== "function") {
         event.ports[0].postMessage({error: `No such command on DwebTransports: ${event.data.command}`});

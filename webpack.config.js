@@ -1,8 +1,8 @@
 module.exports = {
   entry: {
-    'serviceworker': './dweb-serviceworker.js',
+    'dweb-serviceworker': './dweb-serviceworker.js',
     'dweb-serviceworker-boot': './dweb-serviceworker-boot.js',
-    'dweb-objects-serviceworker': './dweb-objects-serviceworker.js'
+    'dweb-serviceworker-proxy': './dweb-serviceworker-proxy.js'
   },
   output: {
     filename: '[name]-bundle.js',
