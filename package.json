@@ -27,7 +27,8 @@
   },
   "scripts": {
     "test": "cd src; node ./test.js",
-    "help": "echo 'test (test it)';'"
+    "help": "echo 'test (test it)';'",
+    "build": "webpack --mode development"
   },
   "version": "0.0.1"
 }
