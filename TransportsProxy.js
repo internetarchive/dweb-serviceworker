@@ -14,6 +14,7 @@ class TransportsProxy {
     }
 
     static async p_registerServiceWorker() {
+        /* Register a serice worker, normally called via p_connect */
         console.log("Registering Service Worker");
         if ('serviceWorker' in navigator) {
 

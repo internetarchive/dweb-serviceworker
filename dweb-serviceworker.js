@@ -24,7 +24,6 @@ self.addEventListener('activate', (event) => {
     console.log('service-worker activating');
     event.waitUntil(self.clients.claim());
     console.log('service-worker clients.claim completed');
-    //TODO-SW remove "HTTP" restriction and test with IPFS
     console.log("Connecting to decentralized transports");
     //event.waitUntil(DwebTransports.p_connect({transports: ["HTTP","WEBTORRENT"], statuscb: p_refreshstatus})); //{transports: searchparams.getAll("transport")}; statuselement: document.getElementById("statuselement")
     event.waitUntil(DwebTransports.p_connect({statuscb: p_refreshstatus})); //{transports: searchparams.getAll("transport")}; statuselement: document.getElementById("statuselement")
@@ -104,8 +103,8 @@ async function p_responseFromName(name, search_supplied, {verbose=false}={}) {
         }
         if (self.location.origin === "http://localhost:8080") {
             console.log(`XXXSW @100 rewriting ${resolution.urls} to localhost url`);
-            //TODO-SW these are just while debugging, can delete when archive.html updated on dweb.me
-            resolution.urls = resolution.urls.map((u) => u.replace('https://dweb.me/examples/archive.html','http://localhost:8080/archive.html'))
+            //These are just while debugging, can uncomment while testing on localhost and dont have on dweb.me
+            //resolution.urls = resolution.urls.map((u) => u.replace('https://dweb.me/examples/archive.html','http://localhost:8080/archive.html'))
             console.log(`XXXSW @130 res= ${resolution.urls}`);
         }
         let data = await DwebTransports.p_rawfetch(resolution.urls, {verbose});
