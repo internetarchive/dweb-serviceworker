@@ -101,10 +101,6 @@ The following functionality is not yet implemented.
     * In WebTorrent it requires WebRTC, and the HTTP fallback is more efficient to access directly
 * From Transport and CommonList: p_newlisturls - just needs implementing (TODO easy)
 
-## TODO document bootstrapping
-* dweb-boot-serviceworker.html
-* dweb-serviceworker-boot.js
-
 ##Communicating with Service Worker
 
 4 ways to communicate with a Service Worker are exposed and tested
@@ -150,8 +146,58 @@ contain an error, and reject with the error if it does. If you'd prefer, it's po
 controller.postMessage() and set up the onmessage handler independently of a promise, but this is
 a convenient wrapper.
 
-Each method of Transports has a method in TransportsProxy that calls _p_proxy 
+Each method of Transports has a method in TransportsProxy that calls _p_proxy
 
-TODO - Working through TransportsProxy here
+##### static async refreshstatuses(statuses)
+Refresh display of statuses (see refreshstatus)
+```
+statuses    [ {name, status}* ]
+```
+
+##### static async refreshstatus(name, status)
+Update the status pointed to by options.statuselement, changes its class to one of statusclasses
+```
+name:   String matching the .name of the Transport
+status: Integer representing the status 0..4
+```
+##### static async p_connect(options, verbose)
+Connect to the transports,
+Chain is typically: archive.html.main > TP.p_connect > TP.p_registerServiceWorker > SW.activate ...
+```
+options = { defaulttransports: ["IPFS"], statuselement: el, http: {}, ipfs: {} }
+    statuselement   HTML Element in which to build <li>'s for the status.
+    See dweb-transports/p_connect for definition of other options
+```
+
+## dweb-serviceworker-boot.js
+When included in a HTML file, will
+* Register the serviceworker - which loads it from the remote server if required
+* Check for a addr=  search parameter and otherwise use its own URL
+* Redirect to that url (or addr) which will be interpreted by the serviceworker.
+
+## dweb-boot-serviceworker.html
+This file is intended as a drop-in replacement for dweb-archive/bootloader.html.
+
+Loads dweb-serviceworker-boot.js and then redirects to the URL,
+
+This file is intended to be either:
+a) loaded by nginx which will then redirect to the original URL
+b) load dweb-boot-serviceworker.html?addr=redirectable URL
+
+## dweb-serviceworker-proxy.js
+Loads TransportsProxy and sets to global variable "DwebObjects", intended so that dweb-serviceworker-proxy-bundle.js is equivalent to dweb-transports.js
+
+## dweb-serviceworker.js
+Top level file for dweb-serviceworker-bundle
+Implements several means of communication (see README.md) and intended to work closely with TransportsProxy.js
+
+Its structure is modeled on standard examples, note that because IPFS (and other transports) needs to be running, and can be (arbitrarily) stopped by the browser, the "activate" step
+and the messaging will check its running.
+
+It handles fetch requests, and implements a set of rules, currently documented in dweb-transport/URL-forward.md (TODO check this file exists, or replace with new location)
+
+It is loaded by TransportsProxy, TODO this should probably be parameterised through options, so that both calls from dweb-serviceworker-proxy.js amd direct calls to TransportsProxy can set it.
+
+TODO - Working through TransportsProxy here, then write up bootstrapping esp URL rewrite rules
 
 

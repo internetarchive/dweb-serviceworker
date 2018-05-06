@@ -1,4 +1,8 @@
 /* global self, Response */
+/*
+Top level file for dweb-serviceworker-bundle
+Implements several means of communication (see README.md) and intended to work closely with TransportsProxy.js
+ */
 
 'use strict';
 

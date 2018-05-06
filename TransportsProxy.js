@@ -122,6 +122,10 @@ class TransportsProxy {
         statuses.map(s => this.refreshstatus(s.name, s.status));
     }
     static async refreshstatus(name, status) {
+        /* Update the status pointed to by options.statuselement, changes its class to one of statusclasses
+        name:   String matching the .name of the Transport
+        status: Integer representing the status 0..4
+         */
         let statuselement = TransportsProxy.options.statuselement; // May be undefined
         if (statuselement) {
             let el = Array.prototype.slice.call(statuselement.getElementsByTagName("LI")).find((el) => el.getAttribute("name") === name);
@@ -139,8 +143,11 @@ class TransportsProxy {
     }
 
     static async p_connect(options, verbose) {
-        //options = { defaulttransports: ["IPFS"], statuselement: el, http: {}, ipfs: {} }
-        // Chain is typically: archive.html.main > TP.p_connect > TP.p_registerServiceWorker > SW.activate ...
+        /*
+        Connect to the transports,
+        options = { defaulttransports: ["IPFS"], statuselement: el, http: {}, ipfs: {} }
+        Chain is typically: archive.html.main > TP.p_connect > TP.p_registerServiceWorker > SW.activate ...
+        */
         this.options = options; // Save for later - esp statuselement
         this.p_registerServiceWorker();
         navigator.serviceWorker.addEventListener('message', function(event) {
