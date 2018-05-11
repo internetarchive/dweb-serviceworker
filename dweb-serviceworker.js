@@ -6,7 +6,7 @@ Implements several means of communication (see README.md) and intended to work c
 
 'use strict';
 
-const DwebTransports = require('dweb-transports'); // Handles multiple transports
+var DwebTransports = require('dweb-transports'); // Handles multiple transports
 const Domain = require('dweb-objects/Domain'); // Must be after DwebTransports, plugs into DwebTransports to resolve names
 const Leaf = Domain.clsLeaf;
 const errors = require('./Errors');
