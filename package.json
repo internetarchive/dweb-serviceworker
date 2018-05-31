@@ -15,7 +15,9 @@
     "dweb-transports": "git+https://git@github.com/internetarchive/dweb-transports.git"
   },
   "description": "Internet Archive Decentralized Web Service Worker Library",
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "latest"
+  },
   "homepage": "https://github.com/internetarchive/dweb-serviceworker#readme",
   "keywords": [],
   "license": "AGPL-3.0",
