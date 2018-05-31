@@ -41,12 +41,12 @@ See the examples in the [`dweb-transport` repo](https://github.com/internetarchi
 
 See [API.md](./API.md) and dweb-transports API.md (TODO need link)for the detailed API.
 
-##See related:
+## See related:
 
 * [Archive.org](http://dweb.archive.org/details) bootstrap into the Archive's page
 * [Examples](http://dweb.me/examples) examples
 
-###Repos:
+### Repos:
 * *dweb-transports:* Common API to underlying transports (http, webtorrent, ipfs, yjs)
 * *dweb-objects:* Object model for Dweb inc Lists, Authentication, Key/Value, Naming
 * *dweb-serviceworker:* Run Transports in ServiceWorker (experimental)
@@ -101,7 +101,7 @@ The following functionality is not yet implemented.
     * In WebTorrent it requires WebRTC, and the HTTP fallback is more efficient to access directly
 * From Transport and CommonList: p_newlisturls - just needs implementing (TODO easy)
 
-##Communicating with Service Worker
+## Communicating with Service Worker
 
 4 ways to communicate with a Service Worker are exposed and tested
 
@@ -129,7 +129,7 @@ Any fetch is intercepted by the Service Worker which responds with a standard HT
 
 ## API
 
-###TransportsProxy
+### TransportsProxy
 The API is intended to match *exactly* 
 the API to Transports.js in dweb-transports (TODO need link) 
 for all static async functions (which cover all functionality). 
