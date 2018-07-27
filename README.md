@@ -10,17 +10,18 @@ to support the decentralized web.
 
 ### Node Installation
 * Clone this repo. 
-* Until this is in npm, add the lines
-`"dweb-transports": "git+https://git@github.com/internetarchive/dweb-transports.git",`
-`"dweb-objects": "git+https://git@github.com/internetarchive/dweb-objects.git",`
-`"dweb-serviceworker": "git+https://git@github.com/internetarchive/dweb-serviceworker.git",`
+`"@internetarchive/dweb-transports": "latest",`
+`"@internetarchive/dweb-objects": "latest",`
+
+and until this is in NPM
+`"@internetarchive/dweb-serviceworker": "git+https://git@github.com/internetarchive/dweb-serviceworker.git",`
 to your package.json file in the dependencies section. 
-* `npm install dweb-serviceworker`  will install the dependencies including IPFS & WebTorrent and dweb-transports
+* `npm install @internetarchive/dweb-serviceworker`  will install the dependencies including IPFS & WebTorrent and dweb-transports
 
 In this order.
 ```
 const DwebTransports = require('dweb-serviceworker-proxy') #adds the transports
-const DwebObjects = require('dweb-objects;) #adds the object library if needed
+const DwebObjects = require('@internetarchive/dweb-objects;) #adds the object library if needed
 ```
 
 * Then see usage API in API.md

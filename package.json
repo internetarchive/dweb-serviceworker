@@ -11,8 +11,8 @@
     "url": "https://github.com/internetarchive/dweb-serviceworker/issues"
   },
   "dependencies": {
-    "dweb-objects": "git+https://git@github.com/internetarchive/dweb-objects.git",
-    "dweb-transports": "git+https://git@github.com/internetarchive/dweb-transports.git"
+    "@internetarchive/dweb-objects": "latest",
+    "@internetarchive/dweb-transports": "latest"
   },
   "description": "Internet Archive Decentralized Web Service Worker Library",
   "devDependencies": {
