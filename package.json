@@ -32,5 +32,5 @@
     "help": "echo 'test (test it)';'",
     "build": "webpack --mode development"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
