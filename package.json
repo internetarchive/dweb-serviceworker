@@ -16,7 +16,8 @@
   },
   "description": "Internet Archive Decentralized Web Service Worker Library",
   "devDependencies": {
-    "chai": "latest"
+    "chai": "latest",
+    "webpack-cli": "^3.1.2"
   },
   "homepage": "https://github.com/internetarchive/dweb-serviceworker#readme",
   "keywords": [],

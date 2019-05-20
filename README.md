@@ -5,6 +5,8 @@ Library for Decentralized Web over a Service Worker - builds on dweb-transports.
 This library is part of a general project at the Internet Archive (archive.org) 
 to support the decentralized web.  
 
+See [Dweb document index](https://github.com/internetarchive/dweb-transports/blob/master/DOCUMENTINDEX.md) for a list of the repos that make up the Internet Archive's Dweb project, and an index of other documents. 
+
 ### Goals
 * to allow an app to use a Service Worker to access the Decentralized Web
 
